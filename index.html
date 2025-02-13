@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf" rel="stylesheet">
+    <title>Frontend Mentor | Conference ticket generator</title>
+</head>
+<body>
+    <div class="image-container">
+        <!-- Background patterns -->
+        <div class="svg-image ">
+            <img src="assets/images/pattern-lines.svg" alt="pattern-lines">
+        </div>
+        <div class="svg-image ">
+            <img src="assets/images/pattern-squiggly-line-top.svg" alt="pattern-squiggly-line-top">
+        </div>
+        <div class="svg-image ">
+            <img src="assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="pattern-squiggly-line-bottom-desktop">
+        </div>
+        <div class="svg-image ">
+            <img src="assets/images/pattern-circle.svg" alt="pattern-circle">
+        </div>
+        <div class="svg-image">
+            <img src="/assets/images/pattern-circle.svg" alt="pattern-circle">
+        </div>
+
+        <div class="content-conatiner">
+          <div id="form-content" class="form-content"  >
+            <img class="logo" src="assets/images/logo-full.svg" alt="Coding Conf Logo">
+
+            <div class="headings">
+              <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+              <p>Secure your spot at next year's biggest coding conference</p>
+            </div>
+            <form id="ticket-form">
+              <div class="form-item">
+                <label for="file-input">Upload Avatar</label>
+                <div id="drop-area" class="upload-box">
+                  <input type="file" id="file-input" name="file-input" class="file-input" accept="image/png, image/jpeg">
+                  <img id="uploaded-image"  class="uploaded-image" src="assets/images/icon-upload.svg" alt="Upload preview">
+                  <div id="message-action" class="message-action">
+                    Drag and drop or click to upload
+                  </div>
+                  <div id="file-actions" class="file-actions">
+                    <button type="button"  id="remove-image">Remove image</button>
+                    <button type="button"  id="change-image" >Change image</button>
+                  </div>
+                </div>
+                <p id="upload-hint" class="upload-hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"/>
+                    <path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/>
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042"/>
+                  </svg>
+                  Upload your photo (JPEG or PNG, max size: 500kb)
+                </p>
+              </div>
+              
+              <div class="form-item">
+                <label for="full-Name">Full Name</label>
+                <input type="text" id="Full-Name" class="required" placeholder="Enter your full name">
+                <p class="text-hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"/>
+                    <path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/>
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042"/>
+                  </svg>
+                  Please enter your full name
+                </p>
+              </div>
+              <div class="form-item">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="required" placeholder="Enter your email">
+                <p class="text-hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"/>
+                    <path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/>
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042"/>
+                  </svg>
+                    Please enter a valid email address
+                </p>
+              </div>
+              <div class="form-item">
+                <label for="github">Github Username</label>
+                <input type="text" id="github" class="required" placeholder="Enter your  Github username">
+                <p class="text-hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"/>
+                    <path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/>
+                    <path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042"/>
+                  </svg>
+                  Please enter a valid username
+                </p>
+              </div>
+              <button type="submit" id="generate-ticket" class="generate-ticket">Generate My Ticket</button>
+            </form>
+          </div>
+          <div id="display-data" class="display-data" style="display: none;" >
+            <img class="logo" src="assets/images/logo-full.svg" alt="Coding Conf Logo">
+            <div class="headings">
+              <h1>Congrats, <span id="header-name" class="gradient-text"></span> !Your Ticket is ready </h1>
+              <p> We've emailed  your ticket to <span id="display-email" class="header-email"></span> and will send updates in the run up to the event.</p>
+            </div>
+
+            <div class="ticket-container">
+              <div class="logo">
+                  <img src="assets/images/logo-mark.svg" alt="logo-mark">
+                  Coding Conf
+              </div>
+
+              <p class="date">Jan 31, 2025 / Austin, TX</p>
+
+              <div class="ticket-user">
+                <img id="display-image" src="" alt="User avatar">
+                <div class="user-info">
+                    <span id="display-name"></span>
+                    <div class="github-username">
+                        <img src="assets/images/icon-github.svg" alt="Github icon">
+                        <span id="display-github"></span>
+                    </div>
+              </div>
+            </div>
+
+            <p class="ticket-number">#01609</p>
+          </div>
+        </div>
+    </div>    
+        
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("C7xBNz9wj9aSeBITC"); // Replace with your EmailJS public key
+      })();
+    </script>  
+  <script src="main.js"></script>
+</body>
+</html>

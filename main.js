@@ -112,6 +112,34 @@ function storeAndDisplayFormData() {
 
 }
 
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const isTextValid = validateTextInputs();
+    const isFileValid = validateFile(fileInput, uploadHint);
+
+    if (isTextValid && isFileValid) {
+        storeAndDisplayFormData();
+        document.getElementById('form-content').classList.add('hide');
+        document.getElementById('display-data').style.display = 'block';
+
+        const templateParams = {
+            user_name: formData.name,
+            user_email: formData.email,
+            user_github: formData.githubUsername,
+        };
+
+        emailjs.send("conference_ticket", "template_co03xwm", templateParams) 
+            .then(response => {
+                console.log("Ticket sent successfully", response);
+            })
+            .catch(error => {
+                console.error("Error sending ticket", error);
+            });
+    }
+});
+
+
 dropArea.addEventListener('click', () => fileInput.click());
 
 dropArea.addEventListener('dragover', (e) => e.preventDefault());
@@ -143,14 +171,3 @@ changeImage.addEventListener('click', (e) => {
     fileInput.click();
 });
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const isTextValid = validateTextInputs()
-    const isFileValid = validateFile(fileInput, uploadHint)
-    if (isTextValid && isFileValid) {
-        storeAndDisplayFormData();
-        document.getElementById('form-content').classList.add('hide');
-        document.getElementById('display-data').style.display = 'block';
-    }
-});

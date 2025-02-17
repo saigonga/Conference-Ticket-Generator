@@ -4,7 +4,10 @@
 
 ## Welcome! 👋
 
-Thanks for checking out this front-end coding challenge.You can checkout the site on:-https://conference-ticket-generator-navy.vercel.app/
+Thanks for checking out this front-end coding challenge.
+You can checkout the site on:-https://conference-ticket-generator-navy.vercel.app/
+I did one more change in that it will send a confirmation mail to your email address.
+I used Email.js api to do this directly using javascript fucntions.  
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
